@@ -1,6 +1,9 @@
 
 body {
-    width: inherit;
+
+    /* width inherit , matlab jo parent ki width , means jo bhi uske parent tag ki width  */ 
+    /* taaki body ki width jo total width h wo aa jaye  here jo scree ki hogi wo hi  */
+    width: inherit; 
     background-color: black;
     position: relative;
     margin: 0;
@@ -11,7 +14,8 @@ body {
     width: 20px;
     border-radius: 50%;
     background-color: red;
-    padding: 0;
+    padding: 0 ;
+    
 }
 
 .bar {
