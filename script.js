@@ -23,6 +23,8 @@ var vy = 2;
 var l = window.innerWidth / 2  - 75 ; // taaki center mein aa jaaye ek baar ; 
 var v ;
 
+var a ; // for paddle speed
+
 // java script se hum css change kar re hain , isliye .style kara h agar html change kar re hote toh 
 // . innerhtml karte ; 
 
@@ -66,6 +68,16 @@ function newGame(){
     // variable for speed
     v =  parseInt(prompt("Enter level "));
 
+    if( v == 2)
+    {
+        a = 20 ; 
+    }
+    else if(v == 3)
+    {
+        
+        a = 30 ; 
+    }
+
     vx = v;
     vy = v;
 }
@@ -102,7 +114,7 @@ function start() {
         // move function call kar ra h 
 
         interval = setInterval(move, 10);
-    },100);
+    },500);
     
 }
 
@@ -202,12 +214,13 @@ function move() {
     }
 
     // if right touch
-    if (cordinates.right == window.innerWidth) {
+    if (cordinates.right >= window.innerWidth) {
          
+
         vx = -1 * vx;
     }
     // if left side touch
-    if (x == 0) {
+    if (x <= 0) {
          
         vx = -1 * vx;
     }
@@ -229,16 +242,16 @@ document.addEventListener('keydown', function (event) {
     // right arrow ka keycode 39 hota h 
 
     // ye isliye kara h taaki thoda sa bhi bar ka hissa screen ke bhaar na jaaye ;  l <= innerWidth - 170
-    if (event.keyCode == 39 && l <= innerWidth - 170) {
-        upperbar.style.left = l + 20 + 'px';
-        lowerBar.style.left = l + 20 + 'px';
-        l += 20;
+    if (event.keyCode == 39 && l <= window.innerWidth - (150+a)) {
+        upperbar.style.left = l + a + 'px';
+        lowerBar.style.left = l + a + 'px';
+        l += a ;
     }
     // key value and min left value
-    else if (event.keyCode == 37 && l >= 20) {
-        upperbar.style.left = l - 20 + 'px';
-        lowerBar.style.left = l - 20 + 'px';
-        l -= 20;
+    else if (event.keyCode == 37 && l >= a) {
+        upperbar.style.left = l - a + 'px';
+        lowerBar.style.left = l - a + 'px';
+        l -= a ;
     }
     
 });
