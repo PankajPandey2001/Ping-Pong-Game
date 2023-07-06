@@ -24,12 +24,12 @@ body {
     position: fixed;
     background-color: white;
     margin: 0;
-    border-radius: 20px /20px;
+    border-radius: 20px 20px; /*top right*/
 }
 
 #upper {
-    top: 30px;
-    left: 550px;
+    top: 30px; /* top se itna margin */
+    left: 550px; /* to keep intial position in between*/
 }
 
 #lower {

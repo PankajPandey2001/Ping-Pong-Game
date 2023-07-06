@@ -125,12 +125,17 @@ function reset() {
 }
 
 
+function playSound(audioName)
+{
+    let audio = new Audio(audioName) ; 
+    audio.play() ; 
+}
 // ball move function   (main function of our code) ;
 function move() {
     // cordinates of ball and paddles
 
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
-    // getBoundingClientRect will return a object which will have 6 -8 values ; like ki top se wo kitni dur hai ;
+    // getBoundingClientRect will return a object which will have 6 - 8 values ; like ki top se wo kitni dur hai ;
     // aur uska niche wala kitni dur h ; 
 
     let cordinates = ball.getBoundingClientRect();
@@ -168,6 +173,8 @@ function move() {
     // if lower paddle touch
     if (cordinates.bottom >= lowerCord.top) {
         if (cordinates.right > lowerCord.left && cordinates.left < lowerCord.right && collision) {
+
+            playSound("ballHit.mp3") ; 
             vy = -1 * vy;
             score++;
             console.log("lower");
@@ -175,9 +182,10 @@ function move() {
         }
     }
 
-    // if upper paddle touch
+    // if upper paddle touch 
     if (cordinates.top <= upperCord.bottom) {
         if (cordinates.left > upperCord.left && cordinates.left < upperCord.right && !collision) {
+            playSound("ballHit.mp3") ; 
             vy = -1 * vy;
             score++;
             collision = true;
