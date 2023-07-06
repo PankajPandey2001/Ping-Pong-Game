@@ -77,6 +77,10 @@ function newGame(){
         
         a = 30 ; 
     }
+    else if(v == 4)
+    {
+        a = 35; 
+    }
 
     vx = v;
     vy = v;
