@@ -88,6 +88,7 @@ function start() {
         alert("Previous max score of " + data.name + " " + data.score);
     }
     
+    playSound("Game begin.mpeg") ; 
     // interval 
 
     // ball ki movement is function se start ho ri h ; 
@@ -146,8 +147,12 @@ function move() {
     let x = cordinates.x; // ye bas shortcut h taaki baar baar coordinate.x na use karna padhe
     let y = cordinates.y;
 
-    // fail condition
+    // FAIL condition---------------
+
     if (y >= lowerCord.bottom  || cordinates.bottom <= upperCord.top) {
+
+        // playSound("Game over.mpeg") ; 
+
 
         let data = JSON.parse(localStorage.getItem('player'));
         // update max score if needed    
@@ -165,6 +170,8 @@ function move() {
             alert("Your score " + score);
         }
         // reset function
+
+        
         reset();
         return;
     }
@@ -174,7 +181,8 @@ function move() {
     if (cordinates.bottom >= lowerCord.top) {
         if (cordinates.right > lowerCord.left && cordinates.left < lowerCord.right && collision) {
 
-            playSound("ballHit2.mp3") ; 
+            // playSound("ballHit2.mp3") ;
+            playSound("hitting sound.mpeg") ;  
             vy = -1 * vy;
             score++;
             console.log("lower");
@@ -185,7 +193,8 @@ function move() {
     // if upper paddle touch 
     if (cordinates.top <= upperCord.bottom) {
         if (cordinates.left > upperCord.left && cordinates.left < upperCord.right && !collision) {
-            playSound("ballHit2.mp3") ; 
+           
+            playSound("hitting sound.mpeg") ; 
             vy = -1 * vy;
             score++;
             collision = true;
@@ -194,12 +203,12 @@ function move() {
 
     // if right touch
     if (cordinates.right == window.innerWidth) {
-        playSound("ballHit.mp3") ; 
+         
         vx = -1 * vx;
     }
     // if left side touch
     if (x == 0) {
-        playSound("ballHit.mp3") ; 
+         
         vx = -1 * vx;
     }
 
