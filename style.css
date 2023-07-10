@@ -17,6 +17,30 @@ body {
     padding: 0 ;
     
 }
+#upper-score{
+    width: 25px;
+    height: 25px;
+    /* border: 1px solid white; */
+    position: absolute;
+    left: 40%;
+    bottom: 100%;
+    display:none;
+    color: #ff004f ;
+    text-align: center;
+}
+
+#lower-score{
+    width: 25px;
+    height: 25px;
+    /* border: 1px solid white; */
+    position: absolute;
+    left: 40%;
+    display:none;
+    top: 100%;
+    color: #ff004f ;
+    text-align: center;
+}
+
 
 .bar {
     height: 10px;

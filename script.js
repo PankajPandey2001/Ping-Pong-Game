@@ -3,6 +3,8 @@
 const ball = document.getElementById("ball");    
 const upperbar = document.getElementById('upper');
 const lowerBar = document.getElementById('lower');
+const upperScore = document.getElementById('upper-score');
+const lowerScore = document.getElementById('lower-score');
 
 // styling to ball
 // ball.style.margin = "250px 0px 0px 620px";
@@ -203,6 +205,12 @@ function move() {
             score++;
             console.log("lower");
             collision = false;
+
+            lowerScore.style.display= "block";
+            setTimeout(() => {
+                lowerScore.style.display= "none";
+            }, 1000);
+            collision = false;
         }
     }
 
@@ -214,6 +222,12 @@ function move() {
             vy = -1 * vy;
             score++;
             collision = true;
+          
+            upperScore.style.display= "block";
+            setTimeout(() => {
+                upperScore.style.display= "none";
+            }, 1000);
+            
         }
     }
 
